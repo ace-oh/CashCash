@@ -1,2 +1,2 @@
 # aoh-apcash
-My final project for the school
+Our final project for the school
