@@ -1,0 +1,14 @@
+Assistant :
+
+Un assistant peut rechercher une fiche client à partir du numéro de fiche client et peut la visualiser ou la modifier à condition d'être authentifié.
+
+Un assistant peut affecter des visites à un technicien à condition que le technicien soit dans la même agence que le client à condition d'être authentifié.
+
+Un assistant peut générer une fiche d'intervention au format PDF. Une fois la fiche modifiée, il peut l'insérer pour prendre en compte les modifications, ainsi qu'insérer l'ID client et générer un ID fiche intervention à condition d'être authentifié.
+
+Un assistant peut entrer une date pour rechercher une fiche d'intervention ou bien saisir une fiche d'intervention pour ensuite visualiser les fiches d'intervention à condition d'être authentifié.
+
+Un assistant peut entrer l'ID d'un technicien afin de visualiser dans un graphe le nombre d'interventions qu'il a réalisées par mois à condition d'être authentifié.
+
+Technicien : 
+Un technicien peut consulter ses interventions affectées en entrant l'ID d'intervention. Il peut également valider les interventions qui sont terminées à condition d'être authentifié.
