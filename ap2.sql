@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 29 nov. 2023 à 07:30
+-- Généré le : mer. 13 déc. 2023 à 08:33
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -105,6 +105,25 @@ INSERT INTO `agences` (`idAgences`, `nomAgence`, `rue`, `numRue`, `cpVilleAgence
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `assistant`
+--
+
+DROP TABLE IF EXISTS `assistant`;
+CREATE TABLE IF NOT EXISTS `assistant` (
+  `idAssis` varchar(50) NOT NULL,
+  `nom` varchar(50) DEFAULT NULL,
+  `prenom` varchar(50) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `numTel` varchar(50) DEFAULT NULL,
+  `mdp` varchar(100) DEFAULT NULL,
+  `idAgences` int NOT NULL,
+  PRIMARY KEY (`idAssis`),
+  KEY `idAgences` (`idAgences`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `client`
 --
 
@@ -130,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`idClient`, `SIREN`, `codeAb`, `rue`, `numRue`, `cpVille`, `ville`, `pays`, `numTel`, `mail`, `idAgences`) VALUES
+(0, 'SIREN16', 'CodeAB16', 16, '1776', 16001, 'Ville16', 'France', '12345678916', 'client16@mail.com', 16),
 (1, 'SIREN1', 'CodeAB1', 1, '123', 75001, 'Paris', 'France', '1234567890', 'client1@mail.com', 1),
 (2, 'SIREN2', 'CodeAB2', 2, '456', 69001, 'Lyon', 'France', '9876543210', 'client2@mail.com', 2),
 (3, 'SIREN3', 'CodeAB3', 3, '789', 13001, 'Marseille', 'France', '4567890123', 'client3@mail.com', 3),
@@ -354,6 +374,7 @@ CREATE TABLE IF NOT EXISTS `technicien` (
   `dateFinContrat` date DEFAULT NULL,
   `idAgences` int NOT NULL,
   `idInter` varchar(50) DEFAULT NULL,
+  `mdp` varchar(100) NOT NULL,
   PRIMARY KEY (`idTech`),
   KEY `idAgences` (`idAgences`),
   KEY `idInter` (`idInter`)
@@ -363,26 +384,32 @@ CREATE TABLE IF NOT EXISTS `technicien` (
 -- Déchargement des données de la table `technicien`
 --
 
-INSERT INTO `technicien` (`idTech`, `nom`, `prenom`, `mail`, `numTel`, `dateDebutContrat`, `dateFinContrat`, `idAgences`, `idInter`) VALUES
-('Tech1', 'Nom1', 'Prenom1', 'tech1@mail.com', 1234567890, '2023-01-01', '2024-01-01', 1, 'Inter1'),
-('Tech10', 'Nom10', 'Prenom10', 'tech10@mail.com', 2147483647, '2023-10-01', '2024-10-01', 10, 'Inter10'),
-('Tech11', 'Nom11', 'Prenom11', 'tech11@mail.com', 1234567890, '2023-11-01', '2024-11-01', 11, 'Inter11'),
-('Tech12', 'Nom12', 'Prenom12', 'tech12@mail.com', 2147483647, '2023-12-01', '2024-12-01', 12, 'Inter12'),
-('Tech13', 'Nom13', 'Prenom13', 'tech13@mail.com', 2147483647, '2024-01-01', '2025-01-01', 13, 'Inter13'),
-('Tech14', 'Nom14', 'Prenom14', 'tech14@mail.com', 2147483647, '2024-02-01', '2025-02-01', 14, 'Inter14'),
-('Tech15', 'Nom15', 'Prenom15', 'tech15@mail.com', 2147483647, '2024-03-01', '2025-03-01', 15, 'Inter15'),
-('Tech2', 'Nom2', 'Prenom2', 'tech2@mail.com', 2147483647, '2023-02-01', '2024-02-01', 2, 'Inter2'),
-('Tech3', 'Nom3', 'Prenom3', 'tech3@mail.com', 2147483647, '2023-03-01', '2024-03-01', 3, 'Inter3'),
-('Tech4', 'Nom4', 'Prenom4', 'tech4@mail.com', 2147483647, '2023-04-01', '2024-04-01', 4, 'Inter4'),
-('Tech5', 'Nom5', 'Prenom5', 'tech5@mail.com', 2147483647, '2023-05-01', '2024-05-01', 5, 'Inter5'),
-('Tech6', 'Nom6', 'Prenom6', 'tech6@mail.com', 1234567890, '2023-06-01', '2024-06-01', 6, 'Inter6'),
-('Tech7', 'Nom7', 'Prenom7', 'tech7@mail.com', 2147483647, '2023-07-01', '2024-07-01', 7, 'Inter7'),
-('Tech8', 'Nom8', 'Prenom8', 'tech8@mail.com', 2147483647, '2023-08-01', '2024-08-01', 8, 'Inter8'),
-('Tech9', 'Nom9', 'Prenom9', 'tech9@mail.com', 2147483647, '2023-09-01', '2024-09-01', 9, 'Inter9');
+INSERT INTO `technicien` (`idTech`, `nom`, `prenom`, `mail`, `numTel`, `dateDebutContrat`, `dateFinContrat`, `idAgences`, `idInter`, `mdp`) VALUES
+('Tech1', 'Nom1', 'Prenom1', 'tech1@mail.com', 1234567890, '2023-01-01', '2024-01-01', 1, 'Inter1', ''),
+('Tech10', 'Nom10', 'Prenom10', 'tech10@mail.com', 2147483647, '2023-10-01', '2024-10-01', 10, 'Inter10', ''),
+('Tech11', 'Nom11', 'Prenom11', 'tech11@mail.com', 1234567890, '2023-11-01', '2024-11-01', 11, 'Inter11', ''),
+('Tech12', 'Nom12', 'Prenom12', 'tech12@mail.com', 2147483647, '2023-12-01', '2024-12-01', 12, 'Inter12', ''),
+('Tech13', 'Nom13', 'Prenom13', 'tech13@mail.com', 2147483647, '2024-01-01', '2025-01-01', 13, 'Inter13', ''),
+('Tech14', 'Nom14', 'Prenom14', 'tech14@mail.com', 2147483647, '2024-02-01', '2025-02-01', 14, 'Inter14', ''),
+('Tech15', 'Nom15', 'Prenom15', 'tech15@mail.com', 2147483647, '2024-03-01', '2025-03-01', 15, 'Inter15', ''),
+('Tech2', 'Nom2', 'Prenom2', 'tech2@mail.com', 2147483647, '2023-02-01', '2024-02-01', 2, 'Inter2', ''),
+('Tech3', 'Nom3', 'Prenom3', 'tech3@mail.com', 2147483647, '2023-03-01', '2024-03-01', 3, 'Inter3', ''),
+('Tech4', 'Nom4', 'Prenom4', 'tech4@mail.com', 2147483647, '2023-04-01', '2024-04-01', 4, 'Inter4', ''),
+('Tech5', 'Nom5', 'Prenom5', 'tech5@mail.com', 2147483647, '2023-05-01', '2024-05-01', 5, 'Inter5', ''),
+('Tech6', 'Nom6', 'Prenom6', 'tech6@mail.com', 1234567890, '2023-06-01', '2024-06-01', 6, 'Inter6', ''),
+('Tech7', 'Nom7', 'Prenom7', 'tech7@mail.com', 2147483647, '2023-07-01', '2024-07-01', 7, 'Inter7', ''),
+('Tech8', 'Nom8', 'Prenom8', 'tech8@mail.com', 2147483647, '2023-08-01', '2024-08-01', 8, 'Inter8', ''),
+('Tech9', 'Nom9', 'Prenom9', 'tech9@mail.com', 2147483647, '2023-09-01', '2024-09-01', 9, 'Inter9', '');
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `assistant`
+--
+ALTER TABLE `assistant`
+  ADD CONSTRAINT `assistant_ibfk_1` FOREIGN KEY (`idAgences`) REFERENCES `agences` (`idAgences`);
 
 --
 -- Contraintes pour la table `client`
