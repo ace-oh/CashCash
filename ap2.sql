@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 29 nov. 2023 à 07:30
+-- Généré le : dim. 07 jan. 2024 à 15:31
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
@@ -130,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`idClient`, `SIREN`, `codeAb`, `rue`, `numRue`, `cpVille`, `ville`, `pays`, `numTel`, `mail`, `idAgences`) VALUES
+(0, 'SIREN16', 'CodeAB16', 16, '1776', 16001, 'Ville16', 'France', '12345678916', 'client16@mail.com', 16),
 (1, 'SIREN1', 'CodeAB1', 1, '123', 75001, 'Paris', 'France', '1234567890', 'client1@mail.com', 1),
 (2, 'SIREN2', 'CodeAB2', 2, '456', 69001, 'Lyon', 'France', '9876543210', 'client2@mail.com', 2),
 (3, 'SIREN3', 'CodeAB3', 3, '789', 13001, 'Marseille', 'France', '4567890123', 'client3@mail.com', 3),
@@ -234,30 +235,37 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   `clientInter` varchar(50) DEFAULT NULL,
   `dateInter` date DEFAULT NULL,
   `dateFinInter` date DEFAULT NULL,
-  `contratInter` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idInter`)
+  `commentInter` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `idTech` varchar(50) NOT NULL,
+  `etat` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`idInter`),
+  KEY `idTech` (`idTech`),
+  KEY `idTech_2` (`idTech`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `intervention`
 --
 
-INSERT INTO `intervention` (`idInter`, `clientInter`, `dateInter`, `dateFinInter`, `contratInter`) VALUES
-('Inter1', 'Client1', '2023-01-01', '2023-01-02', 'Contrat1'),
-('Inter10', 'Client10', '2023-10-01', '2023-10-02', 'Contrat10'),
-('Inter11', 'Client11', '2023-11-01', '2023-11-02', 'Contrat11'),
-('Inter12', 'Client12', '2023-12-01', '2023-12-02', 'Contrat12'),
-('Inter13', 'Client13', '2024-01-01', '2024-01-02', 'Contrat13'),
-('Inter14', 'Client14', '2024-02-01', '2024-02-02', 'Contrat14'),
-('Inter15', 'Client15', '2024-03-01', '2024-03-02', 'Contrat15'),
-('Inter2', 'Client2', '2023-02-01', '2023-02-02', 'Contrat2'),
-('Inter3', 'Client3', '2023-03-01', '2023-03-02', 'Contrat3'),
-('Inter4', 'Client4', '2023-04-01', '2023-04-02', 'Contrat4'),
-('Inter5', 'Client5', '2023-05-01', '2023-05-02', 'Contrat5'),
-('Inter6', 'Client6', '2023-06-01', '2023-06-02', 'Contrat6'),
-('Inter7', 'Client7', '2023-07-01', '2023-07-02', 'Contrat7'),
-('Inter8', 'Client8', '2023-08-01', '2023-08-02', 'Contrat8'),
-('Inter9', 'Client9', '2023-09-01', '2023-09-02', 'Contrat9');
+INSERT INTO `intervention` (`idInter`, `clientInter`, `dateInter`, `dateFinInter`, `commentInter`, `idTech`, `etat`) VALUES
+('01012024_981', '2', '2024-01-03', '2024-01-08', 'test', 'Tech2', 'Terminé'),
+('06012024_197', '2', '2024-01-22', '2024-01-26', '', 'Tech2', 'Non débuté'),
+('07012024_156', '2', '2024-01-07', '2024-01-11', 'Test test ', 'Tech2', 'Terminé'),
+('Inter1', 'Client1', '2023-01-01', '2023-01-02', 'Contrat1', 'Tech1', 'Terminé'),
+('Inter10', 'Client10', '2023-10-01', '2023-10-02', 'Contrat10', 'Tech2', 'Terminé'),
+('Inter11', 'Client11', '2023-11-01', '2023-11-02', 'Contrat11', 'Tech3', 'Terminé'),
+('Inter12', 'Client12', '2023-12-01', '2023-12-02', 'Contrat12', 'Tech14', 'Terminé'),
+('Inter13', 'Client13', '2024-01-01', '2024-01-02', 'Contrat13', 'Tech4', 'Terminé'),
+('Inter14', 'Client14', '2024-02-01', '2024-02-02', 'Contrat14', 'Tech10', 'Terminé'),
+('Inter15', 'Client15', '2024-03-01', '2024-03-02', 'Contrat15', 'Tech12', 'Terminé'),
+('Inter2', 'Client2', '2023-02-01', '2023-02-02', 'Contrat2', 'Tech2', 'Terminé'),
+('Inter3', 'Client3', '2023-03-01', '2023-03-02', 'Contrat3', 'Tech8', 'Terminé'),
+('Inter4', 'Client4', '2023-04-01', '2023-04-02', 'Contrat4', 'Tech7', 'Terminé'),
+('Inter5', 'Client5', '2023-05-01', '2023-05-02', 'Contrat5', 'Tech5', 'Terminé'),
+('Inter6', 'Client6', '2023-06-01', '2023-06-02', 'Contrat6', 'Tech7', 'Terminé'),
+('Inter7', 'Client7', '2023-07-01', '2023-07-02', 'Contrat7', 'Tech9', 'Terminé'),
+('Inter8', 'Client8', '2023-08-01', '2023-08-02', 'Contrat8', 'Tech13', 'Terminé'),
+('Inter9', 'Client9', '2023-09-01', '2023-09-02', 'Contrat9', 'Tech15', 'Terminé');
 
 -- --------------------------------------------------------
 
@@ -305,6 +313,65 @@ INSERT INTO `matériel` (`idMateriel`, `numSerie`, `dateVente`, `dateInstallatio
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `personnels`
+--
+
+DROP TABLE IF EXISTS `personnels`;
+CREATE TABLE IF NOT EXISTS `personnels` (
+  `id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nom` varchar(50) DEFAULT NULL,
+  `prenom` varchar(50) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `numTel` int DEFAULT NULL,
+  `dateDebutContrat` date NOT NULL,
+  `dateFinContrat` date DEFAULT NULL,
+  `idAgences` int NOT NULL,
+  `mdpU` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `emploi` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idAgences` (`idAgences`),
+  KEY `emploi` (`emploi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `personnels`
+--
+
+INSERT INTO `personnels` (`id`, `nom`, `prenom`, `mail`, `numTel`, `dateDebutContrat`, `dateFinContrat`, `idAgences`, `mdpU`, `emploi`) VALUES
+('A001', 'Dupont', 'Jean', 'jean.dupont@email.com', 123456789, '0000-00-00', NULL, 1, 'seSzpoUAQgIl.', 1),
+('A002', 'Martin', 'Alice', 'alice.martin@email.com', 987654321, '0000-00-00', NULL, 2, 'motdepasse2', 1),
+('A003', 'Leclerc', 'Pierre', 'pierre.leclerc@email.com', 456123789, '0000-00-00', NULL, 1, 'motdepasse3', 1),
+('A004', 'Dubois', 'Sophie', 'sophie.dubois@email.com', 789456123, '0000-00-00', NULL, 3, 'motdepasse4', 1),
+('A005', 'Lefevre', 'Alex', 'alex.lefevre@email.com', 321654987, '0000-00-00', NULL, 2, 'motdepasse5', 1),
+('A006', 'Moreau', 'Laura', 'laura.moreau@email.com', 654789321, '0000-00-00', NULL, 1, 'motdepasse6', 1),
+('A007', 'Girard', 'Thomas', 'thomas.girard@email.com', 987321654, '0000-00-00', NULL, 3, 'motdepasse7', 1),
+('A008', 'Roux', 'Emma', 'emma.roux@email.com', 147258369, '0000-00-00', NULL, 2, 'motdepasse8', 1),
+('A009', 'Fournier', 'Lucas', 'lucas.fournier@email.com', 369147258, '0000-00-00', NULL, 1, 'motdepasse9', 1),
+('A010', 'Leroy', 'Chloe', 'chloe.leroy@email.com', 258369147, '0000-00-00', NULL, 2, 'motdepasse10', 1),
+('A011', 'Caron', 'Mathis', 'mathis.caron@email.com', 147852369, '0000-00-00', NULL, 3, 'motdepasse11', 1),
+('A012', 'Michel', 'Lena', 'lena.michel@email.com', 369852147, '0000-00-00', NULL, 1, 'motdepasse12', 1),
+('A013', 'Lemoine', 'Hugo', 'hugo.lemoine@email.com', 852369147, '0000-00-00', NULL, 2, 'motdepasse13', 1),
+('A014', 'Picard', 'Zoe', 'zoe.picard@email.com', 147369852, '0000-00-00', NULL, 3, 'motdepasse14', 1),
+('A015', 'Guerin', 'Enzo', 'enzo.guerin@email.com', 369147852, '0000-00-00', NULL, 1, 'motdepasse15', 1),
+('Tech1', 'Nom1', 'Prenom1', 'tech1@mail.com', 1234567890, '2023-01-01', '2024-01-01', 1, 'seSzpoUAQgIl.', 2),
+('Tech10', 'Nom10', 'Prenom10', 'tech10@mail.com', 2147483647, '2023-10-01', '2024-10-01', 10, 'seSzpoUAQgIl.', 2),
+('Tech11', 'Nom11', 'Prenom11', 'tech11@mail.com', 1234567890, '2023-11-01', '2024-11-01', 11, '', 2),
+('Tech12', 'Nom12', 'Prenom12', 'tech12@mail.com', 2147483647, '2023-12-01', '2024-12-01', 12, '', 2),
+('Tech13', 'Nom13', 'Prenom13', 'tech13@mail.com', 2147483647, '2024-01-01', '2025-01-01', 13, '', 2),
+('Tech14', 'Nom14', 'Prenom14', 'tech14@mail.com', 2147483647, '2024-02-01', '2025-02-01', 14, '', 2),
+('Tech15', 'Nom15', 'Prenom15', 'tech15@mail.com', 2147483647, '2024-03-01', '2025-03-01', 15, '', 2),
+('Tech2', 'Nom2', 'Prenom2', 'tech2@mail.com', 2147483647, '2023-02-01', '2024-02-01', 2, 'seSzpoUAQgIl.', 2),
+('Tech3', 'Nom3', 'Prenom3', 'tech3@mail.com', 2147483647, '2023-03-01', '2024-03-01', 3, '', 2),
+('Tech4', 'Nom4', 'Prenom4', 'tech4@mail.com', 2147483647, '2023-04-01', '2024-04-01', 4, '', 2),
+('Tech5', 'Nom5', 'Prenom5', 'tech5@mail.com', 2147483647, '2023-05-01', '2024-05-01', 5, '', 2),
+('Tech6', 'Nom6', 'Prenom6', 'tech6@mail.com', 1234567890, '2023-06-01', '2024-06-01', 6, '', 2),
+('Tech7', 'Nom7', 'Prenom7', 'tech7@mail.com', 2147483647, '2023-07-01', '2024-07-01', 7, '', 2),
+('Tech8', 'Nom8', 'Prenom8', 'tech8@mail.com', 2147483647, '2023-08-01', '2024-08-01', 8, '', 2),
+('Tech9', 'Nom9', 'Prenom9', 'tech9@mail.com', 2147483647, '2023-09-01', '2024-09-01', 9, '', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `renouveller`
 --
 
@@ -340,45 +407,23 @@ INSERT INTO `renouveller` (`dateRenou`, `modifDateEcheance`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `technicien`
+-- Structure de la table `role`
 --
 
-DROP TABLE IF EXISTS `technicien`;
-CREATE TABLE IF NOT EXISTS `technicien` (
-  `idTech` varchar(50) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
-  `prenom` varchar(50) DEFAULT NULL,
-  `mail` varchar(50) DEFAULT NULL,
-  `numTel` int DEFAULT NULL,
-  `dateDebutContrat` date NOT NULL,
-  `dateFinContrat` date DEFAULT NULL,
-  `idAgences` int NOT NULL,
-  `idInter` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idTech`),
-  KEY `idAgences` (`idAgences`),
-  KEY `idInter` (`idInter`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `idRôle` int NOT NULL AUTO_INCREMENT,
+  `nomRôle` varchar(10) NOT NULL,
+  PRIMARY KEY (`idRôle`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `technicien`
+-- Déchargement des données de la table `role`
 --
 
-INSERT INTO `technicien` (`idTech`, `nom`, `prenom`, `mail`, `numTel`, `dateDebutContrat`, `dateFinContrat`, `idAgences`, `idInter`) VALUES
-('Tech1', 'Nom1', 'Prenom1', 'tech1@mail.com', 1234567890, '2023-01-01', '2024-01-01', 1, 'Inter1'),
-('Tech10', 'Nom10', 'Prenom10', 'tech10@mail.com', 2147483647, '2023-10-01', '2024-10-01', 10, 'Inter10'),
-('Tech11', 'Nom11', 'Prenom11', 'tech11@mail.com', 1234567890, '2023-11-01', '2024-11-01', 11, 'Inter11'),
-('Tech12', 'Nom12', 'Prenom12', 'tech12@mail.com', 2147483647, '2023-12-01', '2024-12-01', 12, 'Inter12'),
-('Tech13', 'Nom13', 'Prenom13', 'tech13@mail.com', 2147483647, '2024-01-01', '2025-01-01', 13, 'Inter13'),
-('Tech14', 'Nom14', 'Prenom14', 'tech14@mail.com', 2147483647, '2024-02-01', '2025-02-01', 14, 'Inter14'),
-('Tech15', 'Nom15', 'Prenom15', 'tech15@mail.com', 2147483647, '2024-03-01', '2025-03-01', 15, 'Inter15'),
-('Tech2', 'Nom2', 'Prenom2', 'tech2@mail.com', 2147483647, '2023-02-01', '2024-02-01', 2, 'Inter2'),
-('Tech3', 'Nom3', 'Prenom3', 'tech3@mail.com', 2147483647, '2023-03-01', '2024-03-01', 3, 'Inter3'),
-('Tech4', 'Nom4', 'Prenom4', 'tech4@mail.com', 2147483647, '2023-04-01', '2024-04-01', 4, 'Inter4'),
-('Tech5', 'Nom5', 'Prenom5', 'tech5@mail.com', 2147483647, '2023-05-01', '2024-05-01', 5, 'Inter5'),
-('Tech6', 'Nom6', 'Prenom6', 'tech6@mail.com', 1234567890, '2023-06-01', '2024-06-01', 6, 'Inter6'),
-('Tech7', 'Nom7', 'Prenom7', 'tech7@mail.com', 2147483647, '2023-07-01', '2024-07-01', 7, 'Inter7'),
-('Tech8', 'Nom8', 'Prenom8', 'tech8@mail.com', 2147483647, '2023-08-01', '2024-08-01', 8, 'Inter8'),
-('Tech9', 'Nom9', 'Prenom9', 'tech9@mail.com', 2147483647, '2023-09-01', '2024-09-01', 9, 'Inter9');
+INSERT INTO `role` (`idRôle`, `nomRôle`) VALUES
+(1, 'Assistant'),
+(2, 'Technicien');
 
 --
 -- Contraintes pour les tables déchargées
@@ -406,6 +451,12 @@ ALTER TABLE `demander`
   ADD CONSTRAINT `demander_ibfk_2` FOREIGN KEY (`idInter`) REFERENCES `intervention` (`idInter`);
 
 --
+-- Contraintes pour la table `intervention`
+--
+ALTER TABLE `intervention`
+  ADD CONSTRAINT `intervention_ibfk_1` FOREIGN KEY (`idTech`) REFERENCES `personnels` (`id`);
+
+--
 -- Contraintes pour la table `matériel`
 --
 ALTER TABLE `matériel`
@@ -413,11 +464,11 @@ ALTER TABLE `matériel`
   ADD CONSTRAINT `matériel_ibfk_2` FOREIGN KEY (`idContrat`) REFERENCES `contratmaintenance` (`idContrat`);
 
 --
--- Contraintes pour la table `technicien`
+-- Contraintes pour la table `personnels`
 --
-ALTER TABLE `technicien`
-  ADD CONSTRAINT `technicien_ibfk_1` FOREIGN KEY (`idAgences`) REFERENCES `agences` (`idAgences`),
-  ADD CONSTRAINT `technicien_ibfk_2` FOREIGN KEY (`idInter`) REFERENCES `intervention` (`idInter`);
+ALTER TABLE `personnels`
+  ADD CONSTRAINT `personnels_ibfk_1` FOREIGN KEY (`idAgences`) REFERENCES `agences` (`idAgences`),
+  ADD CONSTRAINT `personnels_ibfk_3` FOREIGN KEY (`emploi`) REFERENCES `role` (`idRôle`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
