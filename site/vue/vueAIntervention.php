@@ -10,5 +10,3 @@
 
     <button type="submit">Rechercher</button>
 </form>
-
-//adapté à la bonne fonction.
