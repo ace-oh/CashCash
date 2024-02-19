@@ -6,10 +6,11 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
 include_once "$racine/modele/authentification.inc.php";
 include_once "$racine/modele/bd.utilisateur.inc.php";
 include_once "$racine/modele/bd.techniciens.inc.php";
+
 $id = getMailULoggedOn();
 $util = getUtilisateurByMailU($id);
-$emploie = getEmploiUserById($id);
-$role = $emploie["nomRôle"];
+$emploi = getEmploiUserById($id);
+$role = $emploi["nomRôle"];
 
 if (isLoggedOn()) {
     if ($role == "assistant") {
@@ -19,7 +20,7 @@ if (isLoggedOn()) {
         $agent = isset($_POST['agent']) ? $_POST['agent'] : '';
 
         // Récupérer les interventions pour la période et l'agent spécifiés
-        $interventions = getInterventionsByDateAndAgent($start_date, $end_date, $agent);
+        $interventions = Intervention::getInterventionsDateAgent($start_date, $agent);
 
         $menuBurger[] = Array("url" => "./?action=iintervention", "label" => "Mes interventions");
         $menuBurger[] = Array("url" => "./?action=profil", "label" => "Mon profil");

@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="Aintervention.php" method="post">
 <center>
     <label for="start_date">Date de début:</label>
     <input type="date" id="start_date" name="start_date">
