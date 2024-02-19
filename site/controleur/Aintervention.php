@@ -30,12 +30,7 @@ if (isLoggedOn()) {
         include_once "$racine/vue/vueMonProfil.php";
         include_once "$racine/vue/vueIIntervention.php";
         include_once "$racine/vue/pied.html.php";
-    } else {
-        // Code pour un utilisateur non assistant
-        $titre = "Page réservée aux assistants";
-        include_once "$racine/vue/entete.html.php";
-        echo "<p>Vous n'avez pas l'autorisation d'accéder à cette page.</p>";
-        include_once "$racine/vue/pied.html.php";
+
     }
 } else {
     $titre = "T'es pas co bouffon";
