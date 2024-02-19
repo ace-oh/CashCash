@@ -63,10 +63,10 @@ function formulaireIntervention(){
                 }
             }
         } else {
-            echo "Le formulaire n'a pas été soumis.";
+            echo "<div> <center>Le formulaire n'a pas été soumis.";
         }
     } else {
-        echo "Le client et le technicien n'appartiennent pas à la même agence.";
+         echo "<div> <center> Le client et le technicien n'appartiennent pas à la même agence. </center> </div>";
     }
 }
 

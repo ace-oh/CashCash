@@ -1,4 +1,5 @@
 <form action="" method="post">
+<center>
     <label for="start_date">Date de début:</label>
     <input type="date" id="start_date" name="start_date">
 
@@ -9,4 +10,5 @@
     <input type="text" id="agent" name="agent">
 
     <button type="submit">Rechercher</button>
+</center>
 </form>

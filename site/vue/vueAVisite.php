@@ -1,6 +1,6 @@
 
 <div>
-<h2>Créer une intervention</h2>
+<h2><center>Créer une intervention</center></h2>
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_button"])) {
@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_button"])) {
 
 
 <form method="post" action="">
+    <center>
 
     <label for="idClient">Id client:</label>
     <select name="idClient" required>
@@ -43,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_button"])) {
     </select>
 
     <button type="submit" name="submit_button">Enregistrer</button>
+    </center>
 </form>
 
 

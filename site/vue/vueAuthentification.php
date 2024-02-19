@@ -1,10 +1,11 @@
 <div class="formulaire">
         <div class="formu">
             <div class="titreFormu">
-                Connexion
+            <center>Connexion</center>
             </div>
 
             <form action="./?action=connexion" method="POST">
+                <center>
 
                 <input class="text" type="text" name="mailU" placeholder="Identifiant" required/>
 
@@ -17,13 +18,10 @@
                 <div class="center">
                     <button type="submit" class="plus">Se connecter</button>
                 </div>
-
+                </center>
             </form>
         </div>
 </div>
 
 <br>
-Utilisateur de test : <br />
-login : test@bts.sio<br />
-mot de passe : sio
 
