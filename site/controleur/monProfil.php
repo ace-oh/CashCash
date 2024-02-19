@@ -24,7 +24,7 @@ if ($role == "Technicien") {
     $menuBurger[] = Array("url"=>"./?action=iintervention","label"=>"Interventions");
 } elseif ($role == "Assistant") {
     $menuBurger[] = Array("url"=>"./?action=aVisite","label"=>"Affecter Intervention");
-    $menuBurger[] = Array("url"=>"./?action=aintervention","label"=>"Consulter Intervention");
+    $menuBurger[] = Array("url"=>"./?action=Aintervention","label"=>"Consulter Intervention");
 } else {
     $menuBurger[]="";
 }
