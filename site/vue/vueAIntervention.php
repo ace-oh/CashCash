@@ -1,7 +1,4 @@
-<?php
-
-<form action="{{ route('searchInterventions') }}" method="post">
-    @csrf
+<form action="" method="post">
     <label for="start_date">Date de début:</label>
     <input type="date" id="start_date" name="start_date">
 
@@ -13,5 +10,3 @@
 
     <button type="submit">Rechercher</button>
 </form>
-
-?>
