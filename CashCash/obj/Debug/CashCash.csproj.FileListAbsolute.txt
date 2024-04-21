@@ -1,0 +1,9 @@
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\bin\Debug\CashCash.exe.config
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\bin\Debug\CashCash.exe
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\bin\Debug\CashCash.pdb
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\obj\Debug\CashCash.csproj.AssemblyReference.cache
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\obj\Debug\CashCash.Properties.Resources.resources
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\obj\Debug\CashCash.csproj.GenerateResource.cache
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\obj\Debug\CashCash.csproj.CoreCompileInputs.cache
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\obj\Debug\CashCash.exe
+C:\Users\elbar\Source\Repos\cashcash\CashCash\CashCash\obj\Debug\CashCash.pdb
