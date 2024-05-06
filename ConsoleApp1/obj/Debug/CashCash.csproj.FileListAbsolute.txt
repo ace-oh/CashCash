@@ -1,7 +1,0 @@
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\bin\Debug\ConsoleApp1.exe
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\obj\Debug\CashCash.csproj.AssemblyReference.cache
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\obj\Debug\CashCash.csproj.CoreCompileInputs.cache
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\obj\Debug\ConsoleApp1.exe
-C:\Users\elbar\Downloads\client\CashCash client lourd\CashCash client lourd\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
