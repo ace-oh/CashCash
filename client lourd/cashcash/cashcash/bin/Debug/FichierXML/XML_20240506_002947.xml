@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<listeMateriel>
+  <materiels idClient="cli1">
+    <sousContrat>
+      <materiel numSerie="123ABC">
+        <type refInterne="M1234" libelle="Souris sans fil Logitech" />
+        <date_vente>2023-01-01</date_vente>
+        <date_installation>2023-01-02</date_installation>
+        <prix_vente>1000</prix_vente>
+        <emplacement>Emplacement1</emplacement>
+        <nbJourAvantEcheance>25</nbJourAvantEcheance>
+      </materiel>
+    </sousContrat>
+  </materiels>
+</listeMateriel>
