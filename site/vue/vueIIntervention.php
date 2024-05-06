@@ -26,6 +26,7 @@
                 <th>Client</th>
                 <th>Date Intervention</th>
                 <th>Etat</th>
+                <th>Priorité</th>
                 <th>Commentaire</th>
                 <th>Date et Heure</th>
                 <th>Action</th>
@@ -39,15 +40,15 @@
                     <td><?= $intervention['dateInter'] ?></td>
                     <td><?= $intervention['etat'] ?></td>
                     <?php
-                        $isClosestClient = false;
-                        foreach ($distancesToClients as $client) {
-                            if ($client['idClient'] === $intervention['clientInter'] && $client['distanceKm'] < 15) {
-                                $isClosestClient = true;
-                                break;
-                            }
+                    $isClosestClient = false;
+                    foreach ($distancesToClients as $client) {
+                        if ($client['idClient'] === $intervention['clientInter'] && $client['distanceKm'] < 15) {
+                            $isClosestClient = true;
+                            break;
                         }
+                    }
                     ?>
-                    <td><?= $isClosestClient ? '<span style="color: red;">Traiter en priorité</span>' : '' ?></td>
+                    <td><?= $isClosestClient ? '<span style="color: red;">Traiter en priorité</span>' : 'Non prioritaire' ?></td>
                     <?php if ($intervention['etat'] != 'Terminé' && $intervention['etat'] != 'Non débuté') : ?>
                         <!-- Contenu à exécuter si la condition est vraie -->
                         <td>
