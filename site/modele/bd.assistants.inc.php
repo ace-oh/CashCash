@@ -254,7 +254,7 @@ function infosIntervention($idTech, $selectedDate = null) {
 
         // Si une date est spécifiée, ajouter la condition pour la date de début de l'intervention
         if ($selectedDate !== null) {
-            $query .= " OR dateInter = :selectedDate";
+            $query .= " AND dateInter = :selectedDate"; // Utilisation de "AND" au lieu de "OR"
         }
 
         $stmt = $cnx->prepare($query);
