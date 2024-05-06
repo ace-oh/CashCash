@@ -50,16 +50,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><?php echo $intervention['commentInter']; ?></td>
                 <td><?php echo $intervention['etat']; ?></td>
 
-                <!-- Ajoutez les champs cachés pour chaque information d'intervention -->
-                <input type="hidden" name="idInter" value="<?php echo $intervention['idInter']; ?>" />
-                <input type="hidden" name="clientInter" value="<?php echo $intervention['clientInter']; ?>" />
-                <input type="hidden" name="dateInter" value="<?php echo $intervention['dateInter']; ?>" />
-                <input type="hidden" name="dateFinInter" value="<?php echo $intervention['dateFinInter']; ?>" />
-                <input type="hidden" name="commentInter" value="<?php echo $intervention['commentInter']; ?>" />
-                <input type="hidden" name="etat" value="<?php echo $intervention['etat']; ?>" />
-                
                 <!-- Bouton "Générer PDF" pour cette intervention -->
-                <td><button class="plus"  type="submit" name="generate_pdf">Générer PDF</button></td>
+                <td>
+                    <input type="hidden" name="idInter[]" value="<?php echo $intervention['idInter']; ?>" />
+                    <input type="hidden" name="clientInter[]" value="<?php echo $intervention['clientInter']; ?>" />
+                    <input type="hidden" name="dateInter[]" value="<?php echo $intervention['dateInter']; ?>" />
+                    <input type="hidden" name="dateFinInter[]" value="<?php echo $intervention['dateFinInter']; ?>" />
+                    <input type="hidden" name="commentInter[]" value="<?php echo $intervention['commentInter']; ?>" />
+                    <input type="hidden" name="etat[]" value="<?php echo $intervention['etat']; ?>" />
+                    <button class="plus" type="submit" name="generate_pdf" value="<?php echo $intervention['idInter']; ?>">Générer PDF</button>
+                </td>
+
+
             </tr>
             <?php } ?>
         </tbody>
